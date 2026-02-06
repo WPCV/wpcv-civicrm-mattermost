@@ -6,7 +6,7 @@
  * Description:       Integrates CiviCRM with Mattermost.
  * Plugin URI:        https://github.com/wpcv/wpcv-civicrm-mattermost
  * GitHub Plugin URI: https://github.com/wpcv/wpcv-civicrm-mattermost
- * Version:           1.0.0a
+ * Version:           1.0.0b
  * Author:            Christian Wach
  * Author URI:        https://haystack.co.uk
  * License:           GPLv2 or later
@@ -35,7 +35,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Set plugin version here.
-define( 'WPCVMM_VERSION', '1.0.0a' );
+define( 'WPCVMM_VERSION', '1.0.0b' );
 
 // Store reference to this file.
 if ( ! defined( 'WPCVMM_FILE' ) ) {

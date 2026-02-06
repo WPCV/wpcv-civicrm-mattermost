@@ -6,7 +6,7 @@ Integrate CiviCRM with Mattermost
 **Tags:** civicrm, mattermost, sync<br/>
 **Requires at least:** 5.3<br/>
 **Tested up to:** 6.9<br/>
-**Stable tag:** 1.0.0a<br/>
+**Stable tag:** 1.0.0b<br/>
 **License:** GPLv2 or later<br/>
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html
 
