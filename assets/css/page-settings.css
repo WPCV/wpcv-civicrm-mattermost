@@ -1,0 +1,10 @@
+/**
+ * Styles for the Settings Page.
+ *
+ * @package WPCV_CiviCRM_Mattermost
+ */
+
+/* Hidden by default when Javascript is enabled. */
+body.js table.sync-details {
+	display: none;
+}

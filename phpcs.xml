@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<ruleset name="CMW.WordPress">
+
+	<!-- Add source codes in the report. -->
+	<arg value="s" />
+	<arg name="colors" />
+
+	<!-- Check all PHP files in directory tree by default. -->
+	<arg name="extensions" value="php" />
+	<file>.</file>
+
+	<rule ref="WordPress">
+
+		<!-- Allow slash-delimited hooks. -->
+		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores" />
+
+		<!-- I prefer my control structures. -->
+		<exclude name="WordPress.WhiteSpace.ControlStructureSpacing.BlankLineAfterEnd" />
+
+		<!-- PSR4: Allow CiviCRM-style naming conventions. -->
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+		<exclude name="WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase" />
+
+		<!-- Allow example code blocks. -->
+		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
+		<exclude name="Squiz.Commenting.BlockComment.HasEmptyLineBefore" />
+
+	</rule>
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array" value="wpcv-civicrm-mattermost" />
+		</properties>
+	</rule>
+
+	<!-- Enforce short array syntax. -->
+	<rule ref="Generic.Arrays.DisallowShortArraySyntax.Found">
+		<severity>0</severity>
+	</rule>
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax.Found" />
+
+	<!-- Nesting levels. -->
+	<rule ref="Generic.Metrics.NestingLevel">
+		<properties>
+			<property name="absoluteNestingLevel" value="4" />
+		</properties>
+	</rule>
+
+</ruleset>
