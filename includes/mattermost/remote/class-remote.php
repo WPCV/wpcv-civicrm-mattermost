@@ -224,7 +224,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a Mattermost Team.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/GetTeam
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetTeam
 	 *
 	 * @since 1.0.0
 	 *
@@ -281,7 +281,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * permission will return Teams regardless of type. The result is based on query
 	 * string parameters - page and per_page.
 	 *
-	 * @see https://api.mattermost.com/#tag/teams/operation/GetAllTeams
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetAllTeams
 	 *
 	 * @since 1.0.0
 	 *
@@ -324,7 +324,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets the set of Teams that a User is on.
 	 *
-	 * @see https://api.mattermost.com/#tag/teams/operation/GetTeamsForUser
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetTeamsForUser
 	 *
 	 * @since 1.0.0
 	 *
@@ -355,7 +355,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a set of Mattermost Channels.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/GetAllChannels
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetAllChannels
 	 *
 	 * @since 1.0.0
 	 *
@@ -408,7 +408,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 *
 	 * @see https://github.com/mattermost/mattermost-api-reference/issues/429
 	 * @see https://docs.mattermost.com/collaborate/channel-types.html
-	 * @see https://api.mattermost.com/#tag/channels/operation/GetChannelsForTeamForUser
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetChannelsForTeamForUser
 	 *
 	 * @since 1.0.0
 	 *
@@ -484,7 +484,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a Mattermost Channel.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/GetChannel
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetChannel
 	 *
 	 * @since 1.0.0
 	 *
@@ -540,7 +540,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * * If creating a public channel, "create_public_channel" permission is required.
 	 * * If creating a private channel, "create_private_channel" permission is required.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/CreateChannel
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/CreateChannel
 	 *
 	 * @since 1.0.0
 	 *
@@ -576,7 +576,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 *
 	 * Only certain fields are updatable. Omitted fields will be treated as blank.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/UpdateChannel
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/UpdateChannel
 	 *
 	 * @since 1.0.0
 	 *
@@ -613,7 +613,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * Partially updates a Channel by providing only the fields to update.
 	 * Omitted fields will not be updated.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/PatchChannel
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/PatchChannel
 	 *
 	 * @since 1.0.0
 	 *
@@ -657,7 +657,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * As of server version 5.28, optionally use the `permanent=true` query parameter
 	 * to permanently delete the Channel for compliance reasons.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/DeleteChannel
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/DeleteChannel
 	 *
 	 * @since 1.0.0
 	 *
@@ -695,7 +695,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a set of Mattermost Users.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/GetUsers
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetUsers
 	 *
 	 * @since 1.0.0
 	 *
@@ -738,7 +738,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a set of Mattermost Users by their IDs.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/GetUsersByIds
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetUsersByIds
 	 *
 	 * @since 1.0.0
 	 *
@@ -767,7 +767,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a set of Mattermost Users by their usernames.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/GetUsersByUsernames
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetUsersByUsernames
 	 *
 	 * @since 1.0.0
 	 *
@@ -800,7 +800,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * Account would have to go through the login process before this endpoint will
 	 * return any data.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/GetUsersByGroupChannelIds
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetUsersByGroupChannelIds
 	 *
 	 * @since 1.0.0
 	 *
@@ -829,7 +829,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a set of Mattermost Users in a given Channel.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/GetChannelMembers
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetChannelMembers
 	 *
 	 * @since 1.0.0
 	 *
@@ -875,7 +875,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 *
 	 * Add a User(s) to a Channel by creating a Channel Member object(s).
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/AddChannelMember
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/AddChannelMember
 	 *
 	 * @since 1.0.0
 	 *
@@ -917,7 +917,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 *
 	 * Deletes a Channel Member, effectively removing them from a Channel.
 	 *
-	 * @see https://api.mattermost.com/#tag/channels/operation/RemoveUserFromChannel
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/RemoveUserFromChannel
 	 *
 	 * @since 1.0.0
 	 *
@@ -947,7 +947,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Adds a Mattermost User to a Team.
 	 *
-	 * @see https://api.mattermost.com/#tag/teams/operation/AddTeamMember
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/AddTeamMember
 	 *
 	 * @since 1.0.0
 	 *
@@ -988,7 +988,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Removes a Mattermost User from a Team.
 	 *
-	 * @see https://api.mattermost.com/#tag/teams/operation/RemoveTeamMember
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/RemoveTeamMember
 	 *
 	 * @since 1.0.0
 	 *
@@ -1018,7 +1018,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a Mattermost User by their ID.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/GetUser
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetUser
 	 *
 	 * @since 1.0.0
 	 *
@@ -1071,7 +1071,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a Mattermost User by their username.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/GetUserByUsername
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetUserByUsername
 	 *
 	 * @since 1.0.0
 	 *
@@ -1124,7 +1124,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a Mattermost User by their email address.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/GetUserByEmail
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetUserByEmail
 	 *
 	 * @since 1.0.0
 	 *
@@ -1177,7 +1177,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Creates a Mattermost User.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/CreateUser
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/CreateUser
 	 *
 	 * @since 1.0.0
 	 *
@@ -1211,7 +1211,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Activates a Mattermost User.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/UpdateUserActive
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/UpdateUserActive
 	 *
 	 * @since 1.0.0
 	 *
@@ -1250,7 +1250,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Updates the password for a Mattermost User.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/UpdateUserPassword
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/UpdateUserPassword
 	 *
 	 * @since 1.0.0
 	 *
@@ -1290,7 +1290,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Fully updates a Mattermost User.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/UpdateUser
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/UpdateUser
 	 *
 	 * @since 1.0.0
 	 *
@@ -1327,7 +1327,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * Partially updates a User by providing only the fields to update. Omitted fields
 	 * will not be updated.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/PatchUser
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/PatchUser
 	 *
 	 * @since 1.0.0
 	 *
@@ -1356,7 +1356,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Searches for Mattermost Users.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/SearchUsers
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/SearchUsers
 	 *
 	 * @since 1.0.0
 	 *
@@ -1396,7 +1396,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * As of server version 5.28, optionally use the `permanent=true` query parameter
 	 * to permanently delete the User for compliance reasons.
 	 *
-	 * @see https://api.mattermost.com/#tag/users/operation/DeleteUser
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/DeleteUser
 	 *
 	 * @since 1.0.0
 	 *
@@ -1438,7 +1438,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * permissions error - it assumes there is a Channel, but that you don't have
 	 * access to it.
 	 *
-	 * @see https://api.mattermost.com/#tag/posts/operation/GetPostsForChannel
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetPostsForChannel
 	 *
 	 * @since 1.0.0
 	 *
@@ -1484,7 +1484,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Gets a Post in a Mattermost Channel.
 	 *
-	 * @see https://api.mattermost.com/#tag/posts/operation/GetPost
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/GetPost
 	 *
 	 * @since 1.0.0
 	 *
@@ -1540,7 +1540,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * Creates a new Post in a Channel. To create the Post as a Comment on another Post,
 	 * provide "root_id".
 	 *
-	 * @see https://api.mattermost.com/#tag/posts/operation/CreatePost
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/CreatePost
 	 *
 	 * @since 1.0.0
 	 *
@@ -1576,7 +1576,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 *
 	 * Only certain fields are updatable. Omitted fields will be treated as blank.
 	 *
-	 * @see https://api.mattermost.com/#tag/posts/operation/UpdatePost
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/UpdatePost
 	 *
 	 * @since 1.0.0
 	 *
@@ -1613,7 +1613,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	 * Partially updates a Post by providing only the fields to update.
 	 * Omitted fields will not be updated.
 	 *
-	 * @see https://api.mattermost.com/#tag/posts/operation/PatchPost
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/PatchPost
 	 *
 	 * @since 1.0.0
 	 *
@@ -1647,7 +1647,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Pins a Post in a Mattermost Channel.
 	 *
-	 * @see https://api.mattermost.com/#tag/posts/operation/PinPost
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/PinPost
 	 *
 	 * @since 1.0.0
 	 *
@@ -1681,7 +1681,7 @@ class WPCV_CiviCRM_Mattermost_Remote {
 	/**
 	 * Unpins a Post in a Mattermost Channel.
 	 *
-	 * @see https://api.mattermost.com/#tag/posts/operation/UnpinPost
+	 * @see https://developers.mattermost.com/api-documentation/#/operations/UnpinPost
 	 *
 	 * @since 1.0.0
 	 *
