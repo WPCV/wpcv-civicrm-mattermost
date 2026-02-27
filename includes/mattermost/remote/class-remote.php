@@ -390,6 +390,17 @@ class WPCV_CiviCRM_Mattermost_Remote {
 		// Get the data.
 		$response = $connection->get( 'channels' . $query, [], true );
 
+		// Filter by our Team ID.
+		if ( ! empty( $response ) ) {
+			$team_id  = $this->api_team_id_get();
+			$response = array_filter(
+				$response,
+				function( $channel ) use ( $team_id ) {
+					return $channel->team_id === $team_id;
+				}
+			);
+		}
+
 		// --<
 		return $response;
 
