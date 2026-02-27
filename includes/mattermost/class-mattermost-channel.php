@@ -147,7 +147,42 @@ class WPCV_CiviCRM_Mattermost_Mattermost_Channel {
 	// -----------------------------------------------------------------------------------
 
 	/**
-	 * Gets the Mattermost Team data for a given ID.
+	 * Gets an array of Mattermost Channels keyed by ID.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array  $exclude The array of Mattermost Channel IDs to exclude.
+	 * @return array $channels The keyed array of Mattermost Channels.
+	 */
+	public function get_all_keyed_by_id( $exclude = [] ) {
+
+		// Bail if we can't connect to Mattermost.
+		$credentials = $this->mattermost->remote->api_credentials_get();
+		if ( empty( $credentials ) ) {
+			return [];
+		}
+
+		// Get all Channels.
+		$response = $this->mattermost->remote->channels_get();
+		if ( empty( $response ) ) {
+			return [];
+		}
+
+		// Build key => value array for Smarty.
+		$channels = [];
+		foreach ( $response as $channel ) {
+			if ( ! in_array( $channel->id, $exclude, true ) ) {
+				$channels[ $channel->id ] = $channel->display_name;
+			}
+		}
+
+		// --<
+		return $channels;
+
+	}
+
+	/**
+	 * Gets the Mattermost Channel data for a given ID.
 	 *
 	 * @since 1.0.0
 	 *

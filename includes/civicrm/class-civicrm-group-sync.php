@@ -132,6 +132,7 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Group_Sync {
 
 		// Intercept before CiviCRM updates a Group.
 		add_action( 'civicrm_pre', [ $this, 'group_updated_pre' ], 10, 4 );
+		add_action( 'civicrm_pre', [ $this, 'group_update_channel' ], 10, 4 );
 
 	}
 
@@ -195,14 +196,35 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Group_Sync {
 			$form->assign( 'wpcvmm_label', esc_html__( 'Mattermost Channel', 'wpcv-civicrm-mattermost' ) );
 			$form->assign( 'wpcvmm_description', esc_html__( 'This is a Synced Group and already has an associated Mattermost Channel', 'wpcv-civicrm-mattermost' ) );
 
-			// Maybe add Channel URL.
-			// TODO: Check if Contact's User is a Channel Member.
+			// Set empty defaults.
 			$channel_url = '';
-			$url         = $this->group->channel_url_get( (int) $group->id );
+			$change_text = '';
+
+			// Add elements if there is an existing Channel URL.
+			// TODO: Check if Contact's User is a Channel Member.
+			$url = $this->group->channel_url_get( (int) $group->id );
 			if ( ! empty( $url ) ) {
-				$channel_url = ' &rarr; <a href="' . esc_url( $url ) . '">' . esc_html__( 'Visit Channel', 'wpcv-civicrm-mattermost' ) . '</a>';
+
+				// Assign initial controls.
+				$channel_url = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Visit Channel', 'wpcv-civicrm-mattermost' ) . '</a>';
+				$form->assign( 'wpcvmm_url', $channel_url );
+				$change_text = '| ' . esc_html__( 'Change Channel', 'wpcv-civicrm-mattermost' );
+				$form->assign( 'wpcvmm_change', $change_text );
+
+				// Channel selector.
+				$channels = $this->plugin->mattermost->channel->get_all_keyed_by_id();
+				$form->add(
+					'select',
+					'wpcvmm_channel_id',
+					esc_html__( 'Choose another Mattermost Channel', 'wpcv-civicrm-mattermost' ),
+					[ '' => esc_html__( '-- Select a Channel --', 'wpcv-civicrm-mattermost' ) ] + $channels
+				);
+
+				// Assign select description.
+				$advice_text = esc_html__( 'You will need to re-sync this Group if you choose a different Channel.', 'wpcv-civicrm-mattermost' );
+				$form->assign( 'wpcvmm_advice', $advice_text );
+
 			}
-			$form->assign( 'wpcvmm_url', $channel_url );
 
 			// Insert template block into the page.
 			CRM_Core_Region::instance( 'page-body' )->add( [ 'template' => 'groups/civicrm-group-edit.tpl' ] );
@@ -399,6 +421,49 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Group_Sync {
 
 		// Always make the Group of type "Access Control".
 		$group['group_type'] = $this->group_ensure_acl_type( $group );
+
+	}
+
+	/**
+	 * Check for our select element when a CiviCRM Group is about to be updated.
+	 *
+	 * We need to save the Channel data in Group Meta.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string  $op The type of database operation.
+	 * @param string  $object_name The type of object.
+	 * @param integer $group_id The ID of the CiviCRM Group.
+	 * @param array   $group The array of CiviCRM Group data.
+	 */
+	public function group_update_channel( $op, $object_name, $group_id, &$group ) {
+
+		// Target our operation.
+		if ( 'edit' !== $op ) {
+			return;
+		}
+
+		// Target our object type.
+		if ( 'Group' !== $object_name ) {
+			return;
+		}
+
+		// Was our select used?
+		if ( ! isset( $group['wpcvmm_channel_id'] ) ) {
+			return;
+		}
+
+		// Get the full Mattermost Channel data.
+		$channel = $this->plugin->mattermost->channel->get_by_id( $group['wpcvmm_channel_id'] );
+		if ( empty( $channel ) ) {
+			return;
+		}
+
+		// Get the Channel URL.
+		$channel->url = $this->plugin->mattermost->channel->url_get( $channel->id );
+
+		// Store Channel data in Group Meta.
+		$this->group->channel_meta_set( (int) $group['id'], $channel );
 
 	}
 
