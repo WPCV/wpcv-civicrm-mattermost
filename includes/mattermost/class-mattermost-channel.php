@@ -151,7 +151,7 @@ class WPCV_CiviCRM_Mattermost_Mattermost_Channel {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array  $exclude The array of Mattermost Channel IDs to exclude.
+	 * @param array $exclude The array of Mattermost Channel IDs to exclude.
 	 * @return array $channels The keyed array of Mattermost Channels.
 	 */
 	public function get_all_keyed_by_id( $exclude = [] ) {

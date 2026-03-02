@@ -208,7 +208,7 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Group_Sync {
 				// Assign initial controls.
 				$channel_url = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Visit Channel', 'wpcv-civicrm-mattermost' ) . '</a>';
 				$form->assign( 'wpcvmm_url', $channel_url );
-				$change_text = '| ' . esc_html__( 'Change Channel', 'wpcv-civicrm-mattermost' );
+				$change_text = esc_html__( 'Change Channel', 'wpcv-civicrm-mattermost' );
 				$form->assign( 'wpcvmm_change', $change_text );
 
 				// Channel selector.

@@ -238,7 +238,7 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Contact {
 		$user_id = $this->user_id_get( (int) $contact['id'] );
 		if ( ! empty( $user_id ) ) {
 			$user    = $this->plugin->mattermost->user->get_by_id( $user_id );
-			$success = $this->user_restore( $contact, $user, false );
+			$success = $this->user_restore( $contact, $user, false, false );
 			return $user;
 		}
 
@@ -257,7 +257,7 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Contact {
 		$email_exists = $this->plugin->mattermost->user->email_exists( $email['email'] );
 		if ( false !== $email_exists ) {
 			$user    = $this->plugin->mattermost->user->get_by_email( $email['email'] );
-			$success = $this->user_restore( $contact, $user, true );
+			$success = $this->user_restore( $contact, $user, true, false );
 			return $user;
 		}
 
@@ -325,9 +325,10 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Contact {
 	 * @param array    $contact The CiviCRM Contact data.
 	 * @param stdClass $user The Mattermost User object.
 	 * @param bool     $meta True restores the User meta data. False by default.
+	 * @param bool     $password_update True resets the User's password. True by default.
 	 * @return string|bool $success The string "ok" on success, or false on failure.
 	 */
-	public function user_restore( $contact, $user, $meta = false ) {
+	public function user_restore( $contact, $user, $meta = false, $password_update = true ) {
 
 		// Maybe reactivate User.
 		if ( ! empty( $user->delete_at ) ) {
@@ -346,6 +347,15 @@ class WPCV_CiviCRM_Mattermost_CiviCRM_Contact {
 		// Store Mattermost User data in Contact Meta.
 		$this->user_id_set( (int) $contact['id'], $user->id );
 		$this->user_username_set( (int) $contact['id'], $user->username );
+
+		// Bail if not resetting the User password.
+		if ( false === $password_update ) {
+			if ( ! empty( $success ) ) {
+				return $success;
+			} else {
+				return false;
+			}
+		}
 
 		// Generate a random password.
 		$password = wp_generate_password();
